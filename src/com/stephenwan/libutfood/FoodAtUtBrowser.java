@@ -36,6 +36,7 @@ public class FoodAtUtBrowser {
 		}
 		catch (IOException e)
 		{
+			e.printStackTrace();
 			return null;
 		}
 		
@@ -95,12 +96,11 @@ public class FoodAtUtBrowser {
 						tmpFlags.clear();
 						
 						Elements flags = tryitem.get(0).parent().siblingElements();
-						
 						for (Element flagtd : flags)
 						{
 							// get flag and its enum type
 							Element flagimg = flagtd.getElementsByTag("img").get(0);
-							FoodItemFlag f = FoodItemFlag.getByValue(flagimg.attr("src"));
+							FoodItemFlag f = FoodItemFlag.getByValue(flagimg.attr("src").split("\\.")[0]);
 							if (f != null)
 								tmpFlags.add(f);
 						}

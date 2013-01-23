@@ -3,17 +3,17 @@ package com.stephenwan.libutfood.model;
 
 public enum FoodItemFlag
 {
-	ContainsBeef("LegendImages/beef.jpg"),
-	ContainsEgg("LegendImages/eggs.jpg"),
-	ContainsFishOrShellfish("LegendImages/fish.jpg"),
-	GlutenFree("LegendImages/gluten.jpg"),
-	HealthySuggestion("LegendImages/healthy.jpg	"),
-	ContainsMilk("LegendImages/milk.jpg"),
-	ContainsPeanutsOrTreeNuts("LegendImages/nuts.jpg"),
-	ContainsPork("LegendImages/pork.jpg"),
-	ContainsSoy("LegendImages/soy.jpg"),
-	Vegan("LegendImages/vegan.jpg"),
-	Vegetarian("LegendImages/veggie.jpg");
+	ContainsBeef("LegendImages/beef"),
+	ContainsEgg("LegendImages/eggs"),
+	ContainsFishOrShellfish("LegendImages/fish"),
+	GlutenFree("LegendImages/gluten"),
+	HealthySuggestion("LegendImages/healthy"),
+	ContainsMilk("LegendImages/milk"),
+	ContainsPeanutsOrTreeNuts("LegendImages/nuts"),
+	ContainsPork("LegendImages/pork"),
+	ContainsSoy("LegendImages/soy"),
+	Vegan("LegendImages/vegan"),
+	Vegetarian("LegendImages/veggie");
 	
     FoodItemFlag(final String text) {
         this.text = text;
