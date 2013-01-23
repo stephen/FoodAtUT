@@ -1,4 +1,4 @@
 FoodAtUT
 ========
 
-Java Library for pull food data from the UT Austin database.
+Java Library for pulling food data from the UT Austin database.
