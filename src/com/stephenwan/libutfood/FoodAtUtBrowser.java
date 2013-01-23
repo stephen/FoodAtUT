@@ -80,7 +80,7 @@ public class FoodAtUtBrowser {
 						tmpLines.add(fl);
 					}
 					
-					tmpLineName = trycat.text();
+					tmpLineName = trycat.text().replaceAll("-- ", "").replaceAll(" --", "");
 					tmpItems.clear();	
 				}
 				else
