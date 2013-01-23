@@ -1,4 +1,4 @@
 FoodAtUT
 ========
 
-Food Database HTML Scraper for UT Austin
+Java Library for pull food data from the UT Austin database.
