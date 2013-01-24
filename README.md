@@ -1,5 +1,5 @@
 FoodAtUT
-========
+--------
 
 Java Library for scraping UT Austin's foodpro data.
 
@@ -7,11 +7,8 @@ Dependencies
 ------------
 This library is self contained, but uses code from the [jsoup](http://jsoup.org/ "jsoup") library, licensed under the MIT Open Source License.
 
-
-
-
 #### Usage
-
+----------
 The library uses a hierarchy of classes that model the information in the foodpro database. At the top level, each physical location, such as Kinsolving or Jester City Market, is modeled by a `FoodLocation`. Within this `FoodLocation`, a hashmap contains references to all food courses, modeled as `FoodCourse`, available for the the current day, such as Breakfast, Lunch, or Dinner. Not all locations serve all courses. Within each `FoodCourse`, a hashmap holds references to the different categories, which model the physical lines within a location, that are available; these are modeled as FoodLine objects. Each `FoodLine` will contain references to `FoodItem` objects, which each represent an item available at a line. A `FoodItem` has reference to the different dietary flags (such as Vegan, Gluten Free, or Contains Pork), as well as a link to its nutritional facts label.
 
 ```java
