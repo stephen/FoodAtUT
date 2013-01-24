@@ -16,15 +16,14 @@ import com.stephenwan.libutfood.model.FoodItem;
 import com.stephenwan.libutfood.model.FoodItemFlag;
 import com.stephenwan.libutfood.model.FoodLine;
 import com.stephenwan.libutfood.model.FoodLocation;
-import com.stephenwan.libutfood.model.FoodLocations;
 
 public class TestDriver {
 
 	public static void main(String[] args) throws IOException {
 		
-		for (FoodLocation loc : FoodAtUtBrowser.getAllLocations())
-			System.out.println(loc.toString() + "\n");
-		//System.out.println(FoodAtUtBrowser.getFoodAt(FoodLocations.KinsolvingDiningHall));
+		//for (FoodLocation loc : FoodAtUtBrowser.getAllLocations())
+		//	System.out.println(loc.toString() + "\n");
+		System.out.println(FoodAtUtBrowser.getFoodAt(PhysicalLocation.KinsolvingDiningHall));
 		
 	}
 

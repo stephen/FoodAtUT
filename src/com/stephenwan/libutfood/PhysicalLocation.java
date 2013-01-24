@@ -1,6 +1,6 @@
-package com.stephenwan.libutfood.model;
+package com.stephenwan.libutfood;
 
-public enum FoodLocations {
+public enum PhysicalLocation {
 	
 	JesterCityLimits("01", "JCL"),
 	JesterCityMarket("05", "Jester City Market"),
@@ -11,7 +11,7 @@ public enum FoodLocations {
 	LittlefieldPatioCafe("19", "Littlefield Cafe"),
 	JestAPizza("26", "Jest A' Pizza");
 	
-    FoodLocations(final String text, final String readname) {
+    PhysicalLocation(final String text, final String readname) {
         this.text = text;
         this.readname = readname;
     }
@@ -19,9 +19,9 @@ public enum FoodLocations {
     private final String text;
     private final String readname;
     
-    public static FoodLocations getByValue(String text)
+    public static PhysicalLocation getByValue(String text)
     {
-    	for (FoodLocations flag : values())
+    	for (PhysicalLocation flag : values())
     		if (flag.text.equals(text))
     			return flag;
     	return null;
