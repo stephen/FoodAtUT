@@ -1,30 +1,34 @@
 package com.stephenwan.libutfood.model;
 
+import java.util.HashMap;
+
 public class FoodLocation {
 
-	public FoodLocation(String Name, FoodCourse[] Courses)
+	public FoodLocation(String name, FoodCourse[] courses)
 	{
-		this.Name = Name;
-		this.Courses = Courses;
+		this.name = name;
+		this.courses = new HashMap<String, FoodCourse>();
+		for (FoodCourse f : courses)
+			this.courses.put(f.getName(), f);
 	}
 	
-	String Name;
-	FoodCourse[] Courses;
+	String name;
+	HashMap<String, FoodCourse> courses;
 	
 	public String getName()
 	{
-		return Name;
+		return name;
 	}
 	
-	public FoodCourse[] getCourses()
+	public HashMap<String, FoodCourse> getCourses()
 	{
-		return Courses;
+		return courses;
 	}
 	
 	@Override
 	public String toString() {
 		String tmp = getName() + "\n";
-		for (FoodCourse course : Courses)
+		for (FoodCourse course : courses.values())
 			tmp += course.toString();
 		return tmp;
 	}

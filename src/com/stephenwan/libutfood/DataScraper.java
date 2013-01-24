@@ -46,11 +46,15 @@ class DataScraper {
 		Element mTable = mtry.get(0);
 		
 		
-		// get sub tables
+		// get sub tables (meals -> breakfast, lunch, dinner)
 		for (Element courseTable : mTable.select("> tbody > tr > td > table"))
 		{
 			// pull meal (course) name
 			Element courseName = courseTable.getElementsByClass("menusampmeals").get(0);
+			
+			
+			// get nutrition data
+			// if requested in query
 			
 			// nutrition link
 			Element nutritionLink = courseName.parent().parent().getElementsByAttributeValue("name", courseName.text()).get(0);
@@ -90,7 +94,7 @@ class DataScraper {
 			rawData = rawData.getElementsByAttributeValue("height", "5").get(0);
 			Elements rows = rawData.select("> td > table > tbody > tr");
 			
-			// traverse data
+			// traverse data for this 
 			for (Element tr : rows)
 			{
 				// try to get cat? new cat if this is true 
@@ -143,12 +147,19 @@ class DataScraper {
 						
 					}
 				}
-				
-				
 			}
+			
+			// when this is done, we haven't saved the last line yet
+			FoodLine fl = new FoodLine(tmpLineName, tmpItems.toArray(new FoodItem[tmpItems.size()]));
+			tmpLines.add(fl);
+			System.out.println("Just added " + tmpLineName);
+			System.out.println("was..." + tmpLines.size());
 			
 			FoodCourse course = new FoodCourse(courseName.text(), tmpLines.toArray(new FoodLine[tmpLines.size()]));
 			tmpCourses.add(course);
+			
+			tmpLines.clear();
+			System.out.println("and now..." + tmpLines.size());
 			
 		}
 		

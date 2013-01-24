@@ -4,36 +4,44 @@ import java.util.Arrays;
 
 public class FoodItem {
 	
-	public FoodItem(String Name, FoodItemFlag[] Flags, String NutritionLink)
+	public FoodItem(String name, FoodItemFlag[] flags, String nutritionLink)
 	{
-		this.Name = Name;
-		this.Flags = Flags;
-		this.NutritionLink = NutritionLink;
+		this.name = name;
+		this.flags = flags;
+		this.nutritionLink = nutritionLink;
 	}
 
-	String Name;
-	String NutritionLink;
-	FoodItemFlag[] Flags;
+	String name;
+	String nutritionLink;
+	FoodItemFlag[] flags;
 	
 	public String getName()
 	{
-		return Name;
+		return name;
 	}
 	
 	public FoodItemFlag[] getFlags()
 	{
-		return Flags;
+		return flags;
+	}
+	
+	public boolean containsFlag(FoodItemFlag flag)
+	{
+		for (FoodItemFlag f : flags)
+			if (f.equals(flag))
+				return true;
+		return false;
 	}
 	
 	public String getNutritionLink()
 	{
-		return NutritionLink;
+		return nutritionLink;
 	}
 
 	
 	@Override
 	public String toString() {
-		return Name + " (Flag: " + Arrays.toString(Flags) + ", " + getNutritionLink() + ")";
+		return name + " (Flag: " + Arrays.toString(flags) + ", " + nutritionLink + ")";
 	}
 	
 }
