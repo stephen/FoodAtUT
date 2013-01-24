@@ -109,7 +109,7 @@ class DataScraper {
 					}
 					
 					tmpLineName = trycat.text().replaceAll("-- ", "").replaceAll(" --", "");
-					tmpItems.clear();	
+					tmpItems.clear();
 				}
 				else
 				{
@@ -152,14 +152,12 @@ class DataScraper {
 			// when this is done, we haven't saved the last line yet
 			FoodLine fl = new FoodLine(tmpLineName, tmpItems.toArray(new FoodItem[tmpItems.size()]));
 			tmpLines.add(fl);
-			System.out.println("Just added " + tmpLineName);
-			System.out.println("was..." + tmpLines.size());
 			
 			FoodCourse course = new FoodCourse(courseName.text(), tmpLines.toArray(new FoodLine[tmpLines.size()]));
 			tmpCourses.add(course);
 			
 			tmpLines.clear();
-			System.out.println("and now..." + tmpLines.size());
+			tmpLineName = null;
 			
 		}
 		

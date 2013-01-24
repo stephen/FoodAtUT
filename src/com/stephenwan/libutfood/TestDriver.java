@@ -23,25 +23,26 @@ public class TestDriver {
 
 	public static void main(String[] args) throws IOException {
 
-		FoodLocation location = FoodAtUtBrowser.getFoodAt(PhysicalLocation.KinsolvingDiningHall);
+		// get data for this location, true for nutrition links
+		FoodLocation location = FoodAtUtBrowser.getFoodAt(PhysicalLocation.KinsolvingDiningHall, true);
 		System.out.println("Location Name: " + location.getName());
 
+		// pull courses available (breakfast, lunch, dinner?)
 		HashMap<String, FoodCourse> courses = location.getCourses();
-		
 		System.out.println("Courses Available: " + courses.keySet().toString());
 		
+		// pull lines available in the Breakfast course
 		FoodCourse breakfast = courses.get("Breakfast");
-		
 		HashMap<String, FoodLine> lines = breakfast.getLines();
-		
 		System.out.println("Lines Available for Breakfast: " + lines.keySet().toString());
 		
-		System.out.println(courses.get("Breakfast").getLines().keySet());
-		System.out.println(courses.get("Breakfast").getLines().get("Beverages").getItems().keySet());
-		System.out.println(courses.get("Breakfast").getLines().get("Chef's Features").getItems().keySet());
-		System.out.println(courses.get("Breakfast").getLines().keySet());
+		// pull items available in the Sweet Sensations line
+		FoodLine sweet = lines.get("Sweet Sensations");
+		HashMap<String, FoodItem> items = sweet.getItems();
+		System.out.println("Items Available in Sweet Sensations: " + items.keySet().toString());
 		
-
+		FoodItem muffin = items.get("Oatbran Muffin");
+		System.out.println("Information for Oatbran Muffin: " + muffin);
 	}
 
 }
