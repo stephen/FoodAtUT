@@ -6,7 +6,7 @@ Java Library for scraping UT Austin's foodpro data.
 Dependencies
 ------------
 This library is self contained, but uses code from the [jsoup](http://jsoup.org/ "jsoup") library, licensed under the MIT Open Source License.
-
+q
 #### Usage
 ----------
 The library uses a hierarchy of classes that model the information in the foodpro database. At the top level, each physical location, such as Kinsolving or Jester City Market, is modeled by a `FoodLocation`. Within this `FoodLocation`, a hashmap contains references to all food courses, modeled as `FoodCourse`, available for the the current day, such as Breakfast, Lunch, or Dinner. Not all locations serve all courses. Within each `FoodCourse`, a hashmap holds references to the different categories, which model the physical lines within a location, that are available; these are modeled as FoodLine objects. Each `FoodLine` will contain references to `FoodItem` objects, which each represent an item available at a line. A `FoodItem` has reference to the different dietary flags (such as Vegan, Gluten Free, or Contains Pork), as well as a link to its nutritional facts label.
@@ -34,6 +34,7 @@ The library uses a hierarchy of classes that model the information in the foodpr
 		System.out.println("Information for Oatbran Muffin: " + muffin);
 ```
 
+
 #### Output
 ```
 Location Name: KinsolvingDiningHall
@@ -42,3 +43,4 @@ Lines Available for Breakfast: [Beverages, Sweet Sensations, Chef's Features]
 Items Available in Sweet Sensations: [Oatbran Muffin, Glazed Doughnut, Belgian Waffles]
 Information for Oatbran Muffin: Oatbran Muffin (Flag: [ContainsMilk, ContainsEgg, ContainsSoy, Vegetarian, HealthySuggestion], http://129.116.62.55/foodpro/label.asp?locationNum=03&locationName=&dtdate=01%2F23%2F2013&RecNumAndPort=213024%2A1)
 ```
+(Note that output and input may vary by daily changes in the menu)

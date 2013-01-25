@@ -14,6 +14,7 @@ import com.stephenwan.libutfood.model.FoodItem;
 import com.stephenwan.libutfood.model.FoodItemFlag;
 import com.stephenwan.libutfood.model.FoodLine;
 import com.stephenwan.libutfood.model.FoodLocation;
+import com.stephenwan.libutfood.model.FoodNutritionFacts;
 
 class DataScraper {
 
@@ -164,6 +165,49 @@ class DataScraper {
 		FoodLocation loc = new FoodLocation(location.toString(), tmpCourses.toArray(new FoodCourse[tmpCourses.size()]));
 		
 		return loc;
+	}
+	
+	public static FoodNutritionFacts getNutrition(String nutritionLink)
+	{
+		Document doc = null;
+		try
+		{ 
+			doc = Jsoup.connect(nutritionLink).get();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		// get name of food item
+		Elements foodNameTry = doc.getElementsByClass("labelrecipe");
+		if (foodNameTry.size() == 0)
+			throw new FoodAtUtException("Failed to get name for nutrition link: " + nutritionLink);
+		String foodName = foodNameTry.get(0).text();
+		
+		
+		// get other nutrition information
+		Element ssPivot = doc.getElementsMatchingText("Serving Size").get(0).parent();
+		
+		
+		// get ingredients (optional)
+		Elements ingredTry = doc.getElementsByClass("labelingredientsvalue");
+		String ingredientsList = null;
+		if (ingredTry.size() == 0)
+			 ingredientsList = ingredTry.text();
+
+		// get allergens (optional)
+		Elements allergensTry = doc.getElementsByClass("labelallergensvalue");
+		String allergensList = null;
+		if (allergensTry.size() == 0)
+			 allergensList = allergensTry.text();
+		
+		
+		
+		return null;
+			
+			
+		
 	}
 
 }

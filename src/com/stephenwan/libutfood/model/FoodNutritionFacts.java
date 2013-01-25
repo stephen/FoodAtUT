@@ -3,7 +3,7 @@ package com.stephenwan.libutfood.model;
 import java.util.HashMap;
 
 public class FoodNutritionFacts {
-	public FoodNutritionFacts(String name, float servingSize, String servingUnit, int calories, int caloriesFromFat, HashMap<String, FoodNutritionItem> items)
+	public FoodNutritionFacts(String name, float servingSize, String servingUnit, int calories, int caloriesFromFat, HashMap<String, FoodNutritionItem> items, String ingredients, String allergens)
 	{
 		this.name = name;
 		this.servingSize = servingSize;
@@ -19,6 +19,9 @@ public class FoodNutritionFacts {
 	private int calories;
 	private int caloriesFromFat;
 	private HashMap<String, FoodNutritionItem> items;
+	
+	private String ingredients;
+	private String allergens;
 	
 	public static class FoodNutritionItem
 	{
