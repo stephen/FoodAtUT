@@ -167,7 +167,8 @@ class DataScraper {
 		return loc;
 	}
 	
-	public static FoodNutritionFacts getNutrition(String nutritionLink)
+	@Deprecated
+	static FoodNutritionFacts getNutrition(String nutritionLink)
 	{
 		Document doc = null;
 		try
